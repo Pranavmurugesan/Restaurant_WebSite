@@ -21,21 +21,21 @@ export default function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.8 }}
     >
-      <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
-        <a href="#" className={`font-serif text-2xl font-bold tracking-widest ${scrolled ? 'text-charcoal' : 'text-white'}`}>
+      <div className="container mx-auto px-4 lg:px-12 flex justify-between items-center gap-2 lg:gap-4">
+        <a href="#" className={`font-serif text-lg lg:text-2xl font-bold tracking-widest whitespace-nowrap shrink-0 ${scrolled ? 'text-charcoal' : 'text-white'}`}>
           THE LATTICE BISTRO
         </a>
 
-        <div className={`hidden md:flex space-x-8 text-sm font-medium tracking-wide ${scrolled ? 'text-charcoal' : 'text-white'}`}>
+        <div className={`hidden md:flex space-x-3 lg:space-x-8 text-xs lg:text-sm font-medium tracking-wide ${scrolled ? 'text-charcoal' : 'text-white'}`}>
           <a href="#" className="hover:text-sage transition-colors">HOME</a>
           <a href="#menu" className="hover:text-sage transition-colors">MENU</a>
-          <a href="#philosophy" className="hover:text-sage transition-colors">OUR STORY</a>
+          <a href="#philosophy" className="hover:text-sage transition-colors whitespace-nowrap">OUR STORY</a>
           <a href="#gallery" className="hover:text-sage transition-colors">GALLERY</a>
           <a href="#reservations" className="hover:text-sage transition-colors">RESERVATIONS</a>
           <a href="#footer" className="hover:text-sage transition-colors">CONTACT</a>
         </div>
 
-        <a href="#reservations" className="hidden md:block btn-primary">
+        <a href="#reservations" className="hidden md:block btn-primary whitespace-nowrap shrink-0 text-xs lg:text-base px-4 py-2 lg:px-6 lg:py-3">
           RESERVE A TABLE
         </a>
       </div>
