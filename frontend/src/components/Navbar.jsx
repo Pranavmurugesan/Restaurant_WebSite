@@ -1,0 +1,44 @@
+import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+
+export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <motion.nav
+      className={`fixed w-full z-50 transition-all duration-300 ${
+        scrolled ? 'bg-white shadow-md py-4' : 'bg-transparent py-6'
+      }`}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.8 }}
+    >
+      <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
+        <a href="#" className={`font-serif text-2xl font-bold tracking-widest ${scrolled ? 'text-charcoal' : 'text-white'}`}>
+          THE LATTICE BISTRO
+        </a>
+
+        <div className={`hidden md:flex space-x-8 text-sm font-medium tracking-wide ${scrolled ? 'text-charcoal' : 'text-white'}`}>
+          <a href="#" className="hover:text-sage transition-colors">HOME</a>
+          <a href="#menu" className="hover:text-sage transition-colors">MENU</a>
+          <a href="#philosophy" className="hover:text-sage transition-colors">OUR STORY</a>
+          <a href="#gallery" className="hover:text-sage transition-colors">GALLERY</a>
+          <a href="#reservations" className="hover:text-sage transition-colors">RESERVATIONS</a>
+          <a href="#footer" className="hover:text-sage transition-colors">CONTACT</a>
+        </div>
+
+        <a href="#reservations" className="hidden md:block btn-primary">
+          RESERVE A TABLE
+        </a>
+      </div>
+    </motion.nav>
+  );
+}
